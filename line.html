@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>ciao</h1>
+
+    <canvas id="canvas"></canvas>
+    <script>
+      const dataPoints = [
+        { x: 291, y: 360, triggeredAt: 1225 },
+        { x: 744, y: 144, triggeredAt: 2100 },
+        { x: 963, y: 45, triggeredAt: 2865 },
+        { x: 1340, y: 228, triggeredAt: 3443 },
+        { x: 1708, y: 27, triggeredAt: 4303 },
+        { x: 1730, y: 210, triggeredAt: 4646 },
+        { x: 1317, y: 497, triggeredAt: 5006 },
+        { x: 901, y: 481, triggeredAt: 5193 },
+        { x: 882, y: 123, triggeredAt: 5615 },
+        { x: 722, y: 65, triggeredAt: 5833 },
+        { x: 335, y: 477, triggeredAt: 6286 },
+        { x: 845, y: 604, triggeredAt: 7131 },
+        { x: 17, y: 10, triggeredAt: 9631 },
+        { x: 132, y: 426, triggeredAt: 10942 },
+        { x: 381, y: 350, triggeredAt: 11959 },
+        { x: 125, y: 37, triggeredAt: 14006 },
+        { x: 54, y: 44, triggeredAt: 14896 },
+        { x: 764, y: 297, triggeredAt: 17020 },
+        { x: 1271, y: 212, triggeredAt: 18506 },
+        { x: 1565, y: 713, triggeredAt: 19162 },
+        { x: 1746, y: 812, triggeredAt: 19740 },
+        { x: 1553, y: 877, triggeredAt: 20443 },
+        { x: 1339, y: 783, triggeredAt: 20943 },
+        { x: 921, y: 864, triggeredAt: 21287 },
+        { x: 699, y: 855, triggeredAt: 21489 },
+        { x: 500, y: 684, triggeredAt: 21740 },
+        { x: 554, y: 586, triggeredAt: 21912 },
+        { x: 974, y: 406, triggeredAt: 22177 },
+        { x: 1018, y: 120, triggeredAt: 22521 },
+        { x: 683, y: 133, triggeredAt: 22693 },
+        { x: 582, y: 283, triggeredAt: 22850 },
+        { x: 472, y: 339, triggeredAt: 22975 },
+        { x: 400, y: 354, triggeredAt: 23131 },
+        { x: 873, y: 628, triggeredAt: 24678 },
+        { x: 41, y: 896, triggeredAt: 25568 },
+        { x: 62, y: 483, triggeredAt: 26600 },
+        { x: 883, y: 586, triggeredAt: 29006 },
+        { x: 1317, y: 234, triggeredAt: 29724 },
+        { x: 1044, y: 123, triggeredAt: 30506 },
+        { x: 863, y: 390, triggeredAt: 31834 },
+        { x: 539, y: 354, triggeredAt: 35365 },
+        { x: 554, y: 585, triggeredAt: 35943 },
+        { x: 795, y: 588, triggeredAt: 36615 },
+        { x: 1213, y: 465, triggeredAt: 37912 },
+        { x: 1340, y: 198, triggeredAt: 39771 },
+        { x: 1535, y: 148, triggeredAt: 40115 },
+        { x: 1297, y: 582, triggeredAt: 41646 },
+        { x: 307, y: 437, triggeredAt: 42896 },
+        { x: 1082, y: 173, triggeredAt: 46693 },
+      ];
+
+      function draw() {
+        const canvas = document.querySelector("#canvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        if (!canvas.getContext) {
+          return;
+        }
+        const ctx = canvas.getContext("2d");
+
+        // set line stroke and line width
+        ctx.strokeStyle = "orange";
+        ctx.lineWidth = 5;
+
+        // ctx.beginPath();
+        // ctx.moveTo(0, 0);
+        // ctx.lineTo(300, 20);
+        // ctx.stroke();
+        dataPoints.forEach((d) => {
+          insertPoint(ctx, d.x, d.y, d.triggeredAt);
+        });
+      }
+      draw();
+
+      function insertPoint(ctx, x, y, ms) {
+        setTimeout(() => {
+          console.log(x);
+          //   ctx.lineTo(x, y);
+          //   ctx.stroke();
+          ctx.arc(x, y, 10, 0, Math.PI * 2, false);
+          ctx.closePath();
+          ctx.fill();
+        }, ms);
+      }
+
+      //   const dataPoints = [];
+      //   window.addEventListener("click", (e) => {
+      //     dataPoints.push({
+      //       type: e.type,
+      //       x: e.pageX,
+      //       y: e.pageY,
+      //       time: e.timeStamp,
+      //     });
+      //   });
+
+      //   setTimeout(() => {
+      //     let div = document.createElement("div");
+      //     dataPoints.forEach((d) => {
+      //       let point = document.createElement("p");
+      //       point.innerText = `{ x: ${d.x}, y: ${d.y}, triggeredAt: ${d.time} },`;
+      //       div.appendChild(point);
+      //     });
+      //     document.body.appendChild(div);
+      //   }, 50000);
+    </script>
+  </body>
+</html>

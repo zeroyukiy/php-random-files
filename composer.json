@@ -1,0 +1,6 @@
+{
+  "require": {
+    "melbahja/http2-pusher": "^1.1",
+    "ext-mbstring": "*"
+  }
+}
