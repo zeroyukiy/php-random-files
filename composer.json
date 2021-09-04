@@ -1,6 +1,12 @@
 {
   "require": {
+    "php": ">=8.0",
     "melbahja/http2-pusher": "^1.1",
     "ext-mbstring": "*"
-  }
+  },
+  "authors": [
+    {
+      "name": "zeroyukiy"
+    }
+  ]
 }
