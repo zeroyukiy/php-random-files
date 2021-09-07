@@ -81,7 +81,7 @@ class CustomController
         $stmt->bindParam(':pattern', $pattern);
         $stmt->execute();
 
-         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function fetchObject(int $id): Publisher
@@ -90,6 +90,14 @@ class CustomController
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([':id' => $id]);
         return $stmt->fetchObject('Zeroyukiy\Prova\Publisher');
+    }
+
+    public function fetchColumn(int $id): string
+    {
+        $sql = 'SELECT name FROM publishers WHERE publisher_id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetchColumn(0);
     }
 }
 

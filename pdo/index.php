@@ -25,6 +25,8 @@ print_($c->findUsernameByRo('ro'));
 
 print_($c->fetchObject(1));
 
+print_($c->fetchColumn(1));
+
 function print_(mixed $str): void
 {
     echo '<pre>';
