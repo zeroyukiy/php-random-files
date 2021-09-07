@@ -1,8 +1,14 @@
 {
   "require": {
-    "php": ">=8.0",
+    "php": "^8.0",
     "melbahja/http2-pusher": "^1.1",
-    "ext-mbstring": "*"
+    "doctrine/collections": "^1.6",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zeroyukiy\\Prova\\": "pdo/"
+    }
   },
   "authors": [
     {
